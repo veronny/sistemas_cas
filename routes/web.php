@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PersonalesController@personales');
-
-Route::get('personal/{personales}', 'PersonalesController@personal')->name('personal');
+Route::get('/', function () {
+    return redirect('/home');
+});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('personales', 'Backend\PersonalesController')
+    ->middleware('auth');
+
