@@ -11,6 +11,10 @@ class Personales extends Model
 {
     use Sluggable;
 
+    protected $fillable = [
+        'id','user_id','nombres','apellido_paterno','apellido_materno','edad','sexo','departamento','provincia','distrito','fecha_nacimiento','estado_civil','nacionalidad','tipo_documento','nro_documento','ruc','tipo_direccion','direccion','telefono','celular','correo_electronico','colegio','nro_registro',
+    ];
+
     /**
      * Return the sluggable configuration array for this model.
      *

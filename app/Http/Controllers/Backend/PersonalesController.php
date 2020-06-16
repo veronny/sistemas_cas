@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Personales;
-use Illuminate\Http\Request;
+use App\Http\Requests\PersonalesRequest;
 
 class PersonalesController extends Controller
 {
@@ -27,7 +27,7 @@ class PersonalesController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -36,9 +36,13 @@ class PersonalesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PersonalesRequest $request)
     {
-        //
+        $personales = Personales::create($request->all());
+        $this->authorize('user_id', $personales);
+
+        return redirect()->route('home')->with('info', 'Inscripcion creada con éxito');
+
     }
 
     /**
@@ -70,7 +74,7 @@ class PersonalesController extends Controller
      * @param  \App\Personales  $personales
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Personales $personales)
+    public function update(PersonalesRequest $request, Personales $personales)
     {
         //
     }

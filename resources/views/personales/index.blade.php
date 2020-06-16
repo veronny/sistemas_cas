@@ -6,11 +6,9 @@
         <div class="col-md-8">
             <div class="card">
                <div class="card-header">
-                  Informacion Personal
-                  <a href="{{ route('personales.create') }}" class="btn btn-sm btn-primary float-left">Registrar Personal</a>
+                FORMATO DE HOJA DE VIDA
+                  <a href="{{ route('personales.create') }}" class="btn btn-sm btn-primary float-right">Editar Datos Personales</a>
                </div>
-
-
 
                 <div class="card-body">
                     @if (session('status'))
@@ -19,7 +17,11 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <form action="{{ route('personales.store') }}" method="POST">
+
+                        @include('personales.partials.form')
+
+                    </form>
                 </div>
             </div>
         </div>

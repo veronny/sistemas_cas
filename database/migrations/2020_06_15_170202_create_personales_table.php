@@ -18,29 +18,25 @@ class CreatePersonalesTable extends Migration
 
             $table->bigInteger('user_id')->unsigned();
 
-            $table->string('slug');
-
-            $table->string('nombres');
-            $table->string('apellido_paterno');
-            $table->string('apellido_materno');
+            $table->string('nombres')->nullable();
+            $table->string('apellido_paterno')->nullable();
+            $table->string('apellido_materno')->nullable();
+            $table->string('edad')->nullable();
+            $table->string('sexo')->nullable();
             $table->string('departamento')->nullable();
             $table->string('provincia')->nullable();
-            $table->string('ditrito')->nullable();
+            $table->string('distrito')->nullable();
             $table->string('fecha_nacimiento')->nullable();
             $table->string('estado_civil')->nullable();
-            $table->string('nacionalidad');          
             $table->string('tipo_documento');
-            $table->string('nro_documento');            
+            $table->string('nro_documento');
             $table->string('ruc')->nullable();
             $table->string('tipo_direccion');
-            $table->string('direccion')->nullable();            
+            $table->string('direccion')->nullable();
             $table->string('telefono')->nullable();
-            $table->string('celular')->nullable();
             $table->string('correo_electronico')->nullable();;
             $table->string('colegio')->nullable();
             $table->string('nro_registro')->nullable();
-
-            $table->string('imagen')->nullable();
 
             $table->timestamps();
 
